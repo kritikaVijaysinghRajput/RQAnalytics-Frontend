@@ -10,7 +10,6 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-// Register necessary components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const SalesGrowthRate = () => {
@@ -20,15 +19,13 @@ const SalesGrowthRate = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/sales-growth-rate`)
+      .get(`https://rqanalytics-backend.onrender.com/api/sales-growth-rate`)
       .then((response) => {
         const data = response.data;
 
-        // Process the data
-        const labels = data.map((item) => item._id); // Periods
-        const growthRates = data.map((item) => item.growthRate); // Growth rates
+        const labels = data.map((item) => item._id);
+        const growthRates = data.map((item) => item.growthRate);
 
-        // Set chart data
         setChartData({
           labels: labels,
           datasets: [

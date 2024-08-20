@@ -3,7 +3,6 @@ import axios from "axios";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
-// Register the necessary components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const GeographicalDistribution = () => {
@@ -13,15 +12,15 @@ const GeographicalDistribution = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/geographical-distribution`)
+      .get(
+        `https://rqanalytics-backend.onrender.com/api/geographical-distribution`
+      )
       .then((response) => {
         const data = response.data;
 
-        // Process the data
-        const labels = data.map((item) => item._id); // City names
-        const counts = data.map((item) => item.customerCount); // Customer counts
+        const labels = data.map((item) => item._id);
+        const counts = data.map((item) => item.customerCount);
 
-        // Set chart data
         setChartData({
           labels: labels,
           datasets: [

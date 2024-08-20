@@ -31,9 +31,11 @@ const SalesOverTime = () => {
     const fetchData = async () => {
       try {
         const [dailyResponse, monthlyResponse] = await Promise.all([
-          axios.get("http://localhost:5000/api/sales-over-time?interval=daily"),
           axios.get(
-            "http://localhost:5000/api/sales-over-time?interval=monthly"
+            "https://rqanalytics-backend.onrender.com/api/sales-over-time?interval=daily"
+          ),
+          axios.get(
+            "https://rqanalytics-backend.onrender.com/api/sales-over-time?interval=monthly"
           ),
         ]);
 

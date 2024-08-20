@@ -19,7 +19,7 @@ const NewCustomers = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/new-customers`)
+      .get(`https://rqanalytics-backend.onrender.com/api/new-customers`)
       .then((response) => {
         const data = response.data;
 

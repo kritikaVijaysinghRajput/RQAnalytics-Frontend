@@ -10,7 +10,6 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-// Register necessary components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const CustomerLifetimeValue = () => {
@@ -20,7 +19,9 @@ const CustomerLifetimeValue = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/customer-lifetime-value`)
+      .get(
+        `https://rqanalytics-backend.onrender.com/api/customer-lifetime-value`
+      )
       .then((response) => {
         const data = response.data;
 

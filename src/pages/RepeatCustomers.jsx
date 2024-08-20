@@ -10,7 +10,6 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-// Register necessary components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const RepeatCustomers = ({ interval = "monthly" }) => {
@@ -20,7 +19,9 @@ const RepeatCustomers = ({ interval = "monthly" }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/repeat-customers?interval=${interval}`)
+      .get(
+        `https://rqanalytics-backend.onrender.com/api/repeat-customers?interval=${interval}`
+      )
       .then((response) => {
         const data = response.data;
 
